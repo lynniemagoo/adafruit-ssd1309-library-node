@@ -1,0 +1,43 @@
+{
+  "name": "@lynniemagoo/adafruit-ssd1309-library",
+  "version": "1.0.0",
+  "description": "NodeJS Promise-based port adaptation of C/C++ Adafruit_SSD1306 from Github for SSD1309",
+  "main": "index.js",
+  "dependencies": {
+    "@lynniemagoo/adafruit-gfx-library": "^1.0.0"
+  },  
+  "files": {
+    "lib": "lib"
+  },
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lynniemagoo/adafruit-ssd1309-library-node"
+  },
+  "keywords": [
+    "raspberry",
+    "raspi",
+    "rpi",
+    "pi",
+    "node",
+    "i2c",
+    "spi",
+    "canvas",
+    "adafruit",
+    "display",
+    "tft",
+    "oled",
+    "ssd1309"
+  ],
+  "author": "Lyndel McGee",
+  "email": "LynnieMagoo@yahoo.com",
+  "license": "BSD-2-Clause"
+}
