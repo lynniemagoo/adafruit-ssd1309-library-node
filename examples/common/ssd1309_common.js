@@ -35,9 +35,9 @@ function randomInteger(min, max) {
 }
 
 
-async function testDrawLine(display) {
-    const loop_delay = 35, w = display.width(), h = display.height();
-    let i, doWork;
+async function testDrawLine(display, loop_delay = 35) {
+    const w = display.width(), h = display.height();
+    let i;
 
     await display.clearDisplay(); // Clear display buffer
     for(i=0; i<w; i+=4) {
@@ -94,11 +94,12 @@ async function testDrawLine(display) {
     await delay(EOT_DELAY);
 }
 
+
 async function testDrawRect(display, loop_delay = 35) {
     const w = display.width(), h = display.height();
 
     await display.clearDisplay();
-    for(let i=0; i<h/2; i+=2) {
+    for(let i=0; i<fMin(w,h)/2; i+=2) {
         await display.drawRect(i, i, w-2*i, h-2*i, SSD1309_WHITE)
                      .display(); // Update screen with each newly-drawn rectangle
         await delay(loop_delay);
@@ -111,7 +112,7 @@ async function testFillRect(display, loop_delay = 35) {
     const w = display.width(), h = display.height();
     
     await display.clearDisplay();
-    for(let i=0; i<h/2; i+=3) {
+    for(let i=0; i<fMin(w,h)/2; i+=3) {
         // The INVERSE color is used so rectangles alternate white/black
         await display.fillRect(i, i, w-i*2, h-i*2, SSD1309_INVERSE)
                      .display(); // Update screen with each newly-drawn rectangle
@@ -126,7 +127,7 @@ async function testDrawCircle(display, loop_delay = 35) {
 
     await display.clearDisplay();
     for(let i=0; i<fMax(w,h)/2; i+=2) {
-        await display.drawCircle(w/2, w/2, i, SSD1309_WHITE)
+        await display.drawCircle(w/2, h/2, i, SSD1309_WHITE)
                      .display();
         await delay(loop_delay);
     }
@@ -152,7 +153,7 @@ async function testDrawRoundRect(display, loop_delay = 35) {
     const w = display.width(), h = display.height();
 
     await display.clearDisplay();
-    for(let i=0; i<h/2-2; i+=2) {
+    for(let i=0; i<fMin(w,h)/2-2; i+=2) {
         await display.drawRoundRect(i, i, w-2*i, h-2*i, h/4, SSD1309_WHITE)
                      .display();
         await delay(loop_delay);
@@ -165,7 +166,7 @@ async function testFillRoundRect(display, loop_delay = 35) {
     const w = display.width(), h = display.height();
 
     await display.clearDisplay();
-    for(let i=0; i<h/2-2; i+=2) {
+    for(let i=0; i<fMin(w,h)/2-2; i+=2) {
         // The INVERSE color is used so round-rects alternate white/black
         await display.fillRoundRect(i, i, w-2*i, h-2*i, h/4, SSD1309_INVERSE)
                      .display();
@@ -194,7 +195,7 @@ async function testFillTriangle(display, loop_delay = 35) {
     await display.clearDisplay();
     for(let i=fMax(w,h)/2; i>0; i-=5) {
         // The INVERSE color is used so triangles alternate white/black
-        await display.drawTriangle(w/2, h/2-i, w/2-i, h/2+i,  w/2+i, h/2+i, SSD1309_INVERSE)
+        await display.fillTriangle(w/2, h/2-i, w/2-i, h/2+i,  w/2+i, h/2+i, SSD1309_INVERSE)
                      .display();
         await delay(loop_delay);
     }
