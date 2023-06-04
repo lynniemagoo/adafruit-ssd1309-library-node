@@ -1,6 +1,6 @@
 {
   "name": "@lynniemagoo/adafruit-ssd1309-library",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "NodeJS Promise-based port adaptation of C/C++ Adafruit_SSD1306 from Github for SSD1309",
   "main": "index.js",
   "dependencies": {
