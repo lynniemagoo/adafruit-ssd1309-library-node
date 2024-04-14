@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.2.0 2024-04-14
+
+- Bump dependency on gfx library to 1.1.0
+- Bugfix for setting correct display start line - previous releases were not doing this correctly.
+
 ## v1.1.0 2023-08-05
 
 - Refactored to use base class of Adafruit_GrayOLED so that we can optimize data writes.
